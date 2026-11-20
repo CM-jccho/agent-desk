@@ -71,8 +71,9 @@ npm test
 공개 페이지의 다운로드 버튼은 배포 커밋별 GitHub Releases ZIP으로 연결된다. 각 ZIP의 `download_count`를 합산하면 집계 도입 이후의 다운로드 건수를 확인할 수 있다. 같은 사람이 다시 받는 경우도 포함된다.
 
 ```sh
-gh api --paginate --slurp 'repos/CM-jccho/agent-desk/releases?per_page=100' \\
-  --jq '[.[][] | select(.tag_name | startswith("macos-")) | .assets[] | select(.name == "agent-desk.zip") | .download_count] | add // 0'
+counts=$(gh api --paginate 'repos/CM-jccho/agent-desk/releases?per_page=100' \
+  --jq '.[] | select(.tag_name | startswith("macos-")) | .assets[] | select(.name == "agent-desk.zip") | .download_count') &&
+printf '%s\n' "$counts" | awk '{ total += $1 } END { print total + 0 }'
 ```
 
 집계 도입 전에 Pages에서 직접 내려받은 ZIP과 기존 Pages ZIP 주소로 받은 파일은 GitHub Releases 집계에 포함되지 않는다.
