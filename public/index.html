@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Agent Desk · 로컬 AI 작업실</title>
+  <link rel="icon" href="/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/desk.css">
+  <script type="module" src="/desk.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 이동</a>
+  <div class="shell">
+    <aside class="side" aria-label="작업실 내비게이션">
+      <a class="brand" href="#work" aria-label="Agent Desk 업무">
+        <img src="/mark.svg" alt="" width="36" height="36">
+        <span>Agent Desk<small>로컬 AI 작업실</small></span>
+      </a>
+      <nav id="nav" aria-label="작업실 메뉴"></nav>
+      <div class="side-bottom">
+        <span id="connection" class="connection" role="status">서버 연결 확인 중</span>
+      </div>
+    </aside>
+    <main id="main" tabindex="-1">
+      <header class="topbar">
+        <span id="location">작업실</span>
+        <button type="button" class="button secondary" data-action="new-task" disabled>＋ 새 업무</button>
+      </header>
+      <div class="content" id="content">
+        <p class="loading" role="status">작업실을 불러오는 중입니다.</p>
+      </div>
+    </main>
+  </div>
+  <dialog id="dialog" aria-labelledby="dialog-title">
+    <form id="dialog-form">
+      <div class="dialog-head">
+        <h2 id="dialog-title"></h2>
+        <button class="icon-button" type="button" data-action="dialog-close" aria-label="닫기" data-glyph="×"></button>
+      </div>
+      <div id="dialog-fields" class="dialog-fields"></div>
+      <p class="feedback" id="form-error" role="alert" hidden></p>
+      <div class="dialog-foot">
+        <button class="button secondary" type="button" data-action="dialog-close">닫기</button>
+        <button class="button primary" id="dialog-submit" type="submit"></button>
+      </div>
+    </form>
+  </dialog>
+  <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

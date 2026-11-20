@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Codex와 Claude Code를 각자의 Mac에서 실행하는 로컬 AI 작업실. macOS용 ZIP과 사용 안내를 확인하세요.">
+  <title>Agent Desk · macOS 다운로드</title>
+  <link rel="icon" type="image/svg+xml" href="./mark.svg">
+  <link rel="stylesheet" href="./release.css">
+</head>
+<body>
+  <div class="frame">
+    <header>
+      <a class="brand" href="./"><img src="./mark.svg" width="36" height="36" alt="">Agent Desk</a>
+      <nav class="header-links" aria-label="안내">
+        <a class="nav-link" href="#setup">실행 방법</a>
+        <a class="nav-link" href="#usage">활용법</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="title">
+        <div class="pitch">
+          <p class="platform">macOS · Apple Silicon</p>
+          <h1 id="title">내 Mac의<br>AI 작업실</h1>
+          <p class="description">Codex와 Claude Code에 업무를 맡기고 승인, 결과, 후속 검토를 같은 채널에서 확인하세요. 각자 사용하는 CLI 로그인으로 실행합니다.</p>
+          <a class="download" href="./download/agent-desk.zip" download="agent-desk.zip">macOS용 ZIP 다운로드</a>
+          <p class="requirements">Node.js 24 이상 · Codex 또는 Claude Code 로그인</p>
+        </div>
+        <figure>
+          <img src="./workspace.png" width="1440" height="950" alt="Agent Desk 채널에서 Codex가 정리한 안건을 Claude Code가 이어서 검토하는 화면" fetchpriority="high">
+          <figcaption>Agent Desk 업무 화면 · 예시 데이터</figcaption>
+        </figure>
+      </section>
+      <section class="setup" id="setup" aria-labelledby="setup-title">
+        <h2 id="setup-title">다운로드 후 실행</h2>
+        <ol>
+          <li>
+            <h3>Finder에서 다운로드 열기</h3>
+            <p>Finder 왼쪽의 <strong>다운로드</strong>를 누릅니다. <code>agent-desk.zip</code>을 두 번 클릭하고 <strong>agent-desk</strong> 폴더를 엽니다. 폴더가 이미 보이면 바로 열면 됩니다.</p>
+          </li>
+          <li>
+            <h3>시작 파일 더블클릭</h3>
+            <p>폴더 안의 <strong>Start Agent Desk.command</strong>를 두 번 클릭합니다. 잠시 후 기본 브라우저에 작업실이 열립니다.</p>
+            <p>앱을 사용하는 동안 자동으로 열린 터미널 창을 열어 둡니다.</p>
+          </li>
+          <li>
+            <h3>기존 계정 확인</h3>
+            <p>작업실의 <strong>엔진 설정</strong>에서 Codex나 Claude Code가 <strong>로그인됨</strong>으로 표시되는지 확인합니다.</p>
+          </li>
+        </ol>
+        <div class="help">
+          <details>
+            <summary>처음 설치하는 경우</summary>
+            <p><a href="https://nodejs.org/en/download">Node.js 공식 다운로드</a>에서 macOS 설치 프로그램(.pkg)을 받아 Node.js 24 이상을 설치합니다.</p>
+            <p><a href="https://learn.chatgpt.com/docs/codex/cli">Codex 설치 안내</a> 또는 <a href="https://code.claude.com/docs/en/quickstart">Claude Code 설치 안내</a> 중 하나를 따라 계정으로 로그인합니다. 엔진 설정에서 <strong>연결 다시 확인</strong>을 누릅니다.</p>
+          </details>
+          <details>
+            <summary>보안 경고가 나오거나 브라우저가 열리지 않는 경우</summary>
+            <p>Mac이 개발자 확인 경고를 표시하면 파일을 받은 곳을 확인합니다. 해당 파일을 신뢰할 수 있으면 <strong>시스템 설정 → 개인정보 보호 및 보안 → 그래도 열기</strong>에서 열 수 있습니다. <a href="https://support.apple.com/ko-kr/102445">Apple 지원 안내</a></p>
+            <p>터미널에 실행 주소가 표시된 경우 <a href="http://127.0.0.1:4877/">내 Mac의 Agent Desk</a>를 직접 엽니다. 이전 버전이 켜져 있으면 기존 터미널 창을 닫고 새 시작 파일을 두 번 클릭합니다.</p>
+          </details>
+        </div>
+      </section>
+      <section class="setup" id="usage" aria-labelledby="usage-title">
+        <h2 id="usage-title">업무에 활용하기</h2>
+        <ol class="usage-list">
+          <li>
+            <h3>회의 메모 정리</h3>
+            <p><strong>업무 → 받는 봇</strong>에서 봇을 고르고 아래 예시의 대괄호를 내 메모로 바꿔 보냅니다.</p>
+            <blockquote>아래 회의 메모를 결정 사항, 남은 질문, 다음 할 일로 정리해 줘. 메모에 없는 내용은 미정으로 표시해 줘. [회의 메모]</blockquote>
+          </li>
+          <li>
+            <h3>다른 봇에게 검토 넘기기</h3>
+            <p>완료된 답변 아래 <strong>이어서 요청</strong>을 누르고, 받는 봇을 바꿉니다. 앞선 요청과 답변이 함께 전달됩니다.</p>
+            <blockquote>앞선 답변에서 누락된 결정 사항과 실행 전에 확인할 가정을 찾아 줘.</blockquote>
+          </li>
+          <li>
+            <h3>반복 업무에 기준 재사용</h3>
+            <p><strong>메모리</strong>에 팀의 보고서 형식이나 검토 기준을 저장합니다. 다음 요청에서 <strong>자료 첨부</strong>로 필요한 메모리를 선택하고 승인함에서 확인한 뒤 실행합니다.</p>
+          </li>
+        </ol>
+        <p class="usage-tip"><strong>봇 설정 바꾸기</strong> · <strong>봇 팀 → 수정</strong>에서 역할과 엔진을 바꿀 수 있습니다. 모델은 선택한 엔진이 제공하는 목록에서 고릅니다.</p>
+      </section>
+      <footer>
+        <p>설정과 업무 기록은 각자의 Mac에 저장됩니다. 승인한 요청과 선택 자료는 선택한 엔진 제공사에 전달됩니다.</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
