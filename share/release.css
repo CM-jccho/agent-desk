@@ -59,6 +59,8 @@ code { font-family: ui-monospace, monospace; font-size: .9em; color: var(--ink);
 .usage-list { list-style: none; }
 blockquote { color: var(--ink); background: var(--paper); border-radius: 7px; padding: 9px 11px; margin-top: 10px; }
 .usage-tip { color: var(--body); margin-top: 15px; }
+.contact p { color: var(--body); margin-top: 9px; }
+.contact .download { margin-top: 15px; }
 footer { border-top: 1px solid var(--line); color: var(--body); font-size: .91rem; padding: 19px 0 27px; }
 @media (max-width: 800px) {
   .hero, .setup ol { grid-template-columns: minmax(0, 1fr); }
@@ -68,5 +70,6 @@ footer { border-top: 1px solid var(--line); color: var(--body); font-size: .91re
 @media (max-width: 400px) {
   .frame { width: calc(100% - 32px); }
   header { min-height: 66px; }
+  .header-links { justify-content: flex-end; gap: 1px 9px; }
   .hero { padding-block: 38px; }
 }

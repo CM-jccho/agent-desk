@@ -4,6 +4,8 @@ Agent Desk는 동일한 Mac에서 로그인한 Codex와 Claude Code를 업무 �
 
 [macOS 다운로드 및 활용 가이드](https://cm-jccho.github.io/agent-desk/)
 
+설치 오류, 사용 질문, 개선 제안은 [문의 양식](https://docs.google.com/forms/d/e/1FAIpQLSeTIEX5Tqf9hI31pZFHkc9NYCciDnl_ROmylGCkCsTLHEE12w/viewform)으로 받는다.
+
 ## 시작
 
 Node.js 24 이상과 Codex 또는 Claude Code가 필요하다.
@@ -63,6 +65,17 @@ npm test
 자동 테스트는 중복 승인, 스레드 연결, 재시작·저장 복구, 메모리와 파일 사본 고정, 폴더 이탈 차단, 취소·재요청, 로컬 요청 검증을 확인한다. 실계정 CLI 확인은 별도 임시 데이터베이스와 비민감 테스트 요청으로 진행했다.
 
 공개 저장소의 `main`에 변경이 올라가면 GitHub Actions가 macOS ZIP을 만들고, 새로 압축을 푼 앱의 테스트를 통과한 뒤 GitHub Pages에 배포한다. 로컬에서 공유 파일을 만들려면 Mac에서 `node share/build-release.mjs`를 실행한다.
+
+## 다운로드 집계
+
+공개 페이지의 다운로드 버튼은 배포 커밋별 GitHub Releases ZIP으로 연결된다. 각 ZIP의 `download_count`를 합산하면 집계 도입 이후의 다운로드 건수를 확인할 수 있다. 같은 사람이 다시 받는 경우도 포함된다.
+
+```sh
+gh api --paginate --slurp 'repos/CM-jccho/agent-desk/releases?per_page=100' \\
+  --jq '[.[][] | select(.tag_name | startswith("macos-")) | .assets[] | select(.name == "agent-desk.zip") | .download_count] | add // 0'
+```
+
+집계 도입 전에 Pages에서 직접 내려받은 ZIP과 기존 Pages ZIP 주소로 받은 파일은 GitHub Releases 집계에 포함되지 않는다.
 
 ## 벤치마크 출처
 
